@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         SBI.rateOfInterest = 8;
@@ -35,6 +37,28 @@ public class Main {
         //calculate interest for account1
         double interest = account1.calculateTotalInterest(10);
         System.out.println("The total interest you will get: "+ interest);
+
+        //Making it dynamic
+        System.out.println("Welcome to SBI, please enter the details to create an account: ");
+        System.out.println("---------------------------------------------------------------");
+
+        System.out.println("Enter your Name: ");
+        Scanner sc = new Scanner(System.in);
+        String name = sc.next();
+
+        System.out.println("Enter Balance ");
+        int initialBalance = sc.nextInt();
+
+        System.out.println("Enter Password ");
+        String password = sc.next();
+
+        SBI sbiAccount = new SBI(initialBalance, password, name);
+
+        System.out.println("Enter Money to add to your Account: ");
+        int add_money = sc.nextInt();
+        String newBalance = sbiAccount.addMoney(add_money);
+
+        System.out.println(newBalance);
 
 
     }
