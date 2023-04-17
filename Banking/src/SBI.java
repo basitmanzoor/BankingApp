@@ -5,8 +5,8 @@ public class SBI implements Bank {
     private int balance;
     private String accNumber;
     private String password;
-    private String name;
-    private static double rateOfInterest;
+    public String name;
+    public static double rateOfInterest;
 
     public SBI(int balance, String password, String name) {
         this.accNumber = UUID.randomUUID().toString(); //UUID is a unique random number generator(Universally unique indentifier)
@@ -60,7 +60,7 @@ public class SBI implements Bank {
     }
 
     @Override
-    public double calculateTotalInterest(int years, String password){
+    public double calculateTotalInterest(int years){
         double interest = balance*rateOfInterest*years/100;
         return interest;
     }
