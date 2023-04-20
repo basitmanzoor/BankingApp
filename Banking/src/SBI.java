@@ -17,10 +17,12 @@ public class SBI implements Bank {
 
     @Override
     public int checkBalance(String password) {
-        if(password == this.password){
+        if(password.equals(this.password)){
             return balance;
         }
-        return -1;
+        else {
+            return -1;
+        }
     }
 
     @Override
@@ -32,7 +34,7 @@ public class SBI implements Bank {
 
     @Override
     public String withdrawMoney(int drawMoney, String password) {
-        if(password == this.password){
+        if(password.equals(this.password)){
             //check if the balance is enough
             if(balance < drawMoney){
                 return " Insufficient Balance ";
@@ -50,7 +52,7 @@ public class SBI implements Bank {
     @Override
     public String changePassword(String oldPassword, String newPassword) {
         //if current password matches with old password
-        if(this.password.equals(oldPassword)){
+        if(oldPassword.equals(this.password)){
             this.password = newPassword;
             return " Password changed successfully ";
         }
